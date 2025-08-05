@@ -4,7 +4,7 @@ Created on Fri Jul 18 11:44:57 2025
 
 @author: Paul
 
-Script to create Figure 7 in the paper "The role of coupling and
+Script to create Figure 8 in the paper "The role of coupling and
 timescales for interacting tipping elements"
 """
 
@@ -266,3 +266,4 @@ ax0.spines['right'].set_visible(False)
 ax0.spines['top'].set_visible(False)
 
 # fig2.savefig('../Figures/Localised_coupling/Cascade_tipping_loc_coupling_lambda_M_3dbif_arrows_speed_v2.pdf', format='pdf', dpi=800)
+
