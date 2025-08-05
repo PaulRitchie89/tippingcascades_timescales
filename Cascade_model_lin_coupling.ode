@@ -1,0 +1,50 @@
+x'=3*x-x^3+lambda
+y'=3*y-y^3+M
+
+M=a+b*(x-xeqs)
+
+# Initial States
+init x=-1.5, y=-1.5
+
+# Parameters varied for bifurcations.
+par lambda=0
+par b=0.6
+
+# Parameters
+a=0
+xeqs=-sqrt(3)
+
+# numarical parameters for XPPAut
+
+#integration 
+@ total=1000, 
+@ Dt=0.01,
+@ Bound=200000,
+
+# discretization of periodic orbits
+@ Ntst=100, 
+
+# maximum number of steps taken along any branch
+@ Nmax=50000,
+
+# max min and step size
+@ Dsmin=1e-6, Ds=0.02, Dsmax=0.02, 
+
+# frequency of labelled points
+@ NPr=1000
+
+# main parameter min and max
+@ ParMin=-120, ParMax=5, 
+
+# solution norm min and max
+@ NormMin=0, NormMax=10000000,
+
+#other AUTO parameters 
+@ epsu=1e-5, epsl=1e-5, epss=1e-5
+#@ epsu=0.1, epsl=0.001, epss=1e-7
+
+# XPP graphical options
+@ axes=2, xplot=x, yplot=y
+@ xlo=-2, xhi=2, ylo=-2, yhi=2
+
+done
