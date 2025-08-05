@@ -1,7 +1,10 @@
+# ODEs
 x'=3*x-x^3+lambda
 y'=3*y-y^3+M
 
+# Coupling function
 M=a+b*(x-xeqs)
+# M=a+b/cosh(c*(x-d))
 
 # Initial States
 init x=-1.5, y=-1.5
@@ -12,6 +15,8 @@ par b=0.6
 
 # Parameters
 a=0
+#c=2
+#d=0.5
 xeqs=-sqrt(3)
 
 # numarical parameters for XPPAut
@@ -46,5 +51,6 @@ xeqs=-sqrt(3)
 # XPP graphical options
 @ axes=2, xplot=x, yplot=y
 @ xlo=-2, xhi=2, ylo=-2, yhi=2
+
 
 done
