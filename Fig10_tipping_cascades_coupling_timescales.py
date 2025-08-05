@@ -4,7 +4,7 @@ Created on Fri Jul 11 17:23:32 2025
 
 @author: Paul
 
-Plotting script to create Figure 9 in the paper "The role of coupling and
+Plotting script to create Figure 10 in the paper "The role of coupling and
 timescales for interacting tipping elements"
 """
 
@@ -88,3 +88,4 @@ plt.tight_layout()
 plt.subplots_adjust(top=0.93)
 
 # fig.savefig('../Figures/Localised_coupling/Cascade_tipping_b_eps_tipping_regimes_loc_v5.pdf', format='pdf', dpi=800)
+
