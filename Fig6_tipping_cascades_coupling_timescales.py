@@ -119,12 +119,12 @@ xeq_start = -np.sqrt(3)     # Starting equilibrium for upstream systeml
 a = 0               # Start level of downstream forcing
 
 # Array of different coupling amplitudes b
-bs = [0.5,0.52,1.25,3.468,6]
+bs = [0.495,0.52,1.25,3.468,6]
 
 # Initialise figure
 fig, ax = plt.subplots(2,3,sharex=True,figsize=(7.007874,4.2))
 
-ax[1,2].set_xlim(-5,5)
+ax[1,2].set_xlim(-5,5.5)
 ax[1,2].set_ylim(0.1,100)
 ax[1,2].set_yscale('log')
 
@@ -187,7 +187,7 @@ for i in range(len(bs)):
 
 # Set axes bounds
 lam_low_lin = -5.5
-lam_high_lin = 5
+lam_high_lin = 5.5
 x_high_lin = 20
 y_high_lin = 5
 
@@ -265,4 +265,4 @@ ax[1,0].text(-0.18, 1.1, '\\textbf{(d)}', transform=ax[1,0].transAxes, **text_kw
 ax[1,1].text(-0.18, 1.1, '\\textbf{(e)}', transform=ax[1,1].transAxes, **text_kwargs)
 ax[1,2].text(-0.18, 1.1, '\\textbf{(f)}', transform=ax[1,2].transAxes, **text_kwargs)
 
-# fig.savefig('../Figures/Linear_coupling/Cascade_tipping_lin_coupling_2par_lambda_y_bif_diags_arrows_speed.pdf', format='pdf', dpi=800)
+# fig.savefig('../Figures/Linear_coupling/Cascade_tipping_lin_coupling_2par_lambda_y_bif_diags_arrows_speed_v2.pdf', format='pdf', dpi=800)
