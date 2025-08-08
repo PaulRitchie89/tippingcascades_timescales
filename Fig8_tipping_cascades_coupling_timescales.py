@@ -138,7 +138,8 @@ bs = [1.8, 2, 2.2115194, 2.2115195, 8, 27.4, 29.3, 40]
 
 # Initialise figure
 fig2 = plt.figure(figsize=(7.007874,6))
-ax0 = fig2.add_axes([0.06,0.74,0.23,0.19])
+# ax0 = fig2.add_axes([0.06,0.74,0.23,0.19])
+ax0 = fig2.add_axes([0.73,0.08,0.2,0.2])
 ax0.set_xlim(1.5,2.5)
 ax0.set_ylim(0,4)
 ax0.plot([2,2],[0,4],'k--',lw=1)
@@ -186,7 +187,7 @@ for j in range(len(bs)):
     ax0.scatter(forcing_ramp(t, lamb_min, lamb_max, r),forcing_loc(x_det, a, bs[j], c, d),c=np.log10(speed),cmap=cmap,norm=norm,s=0.02,zorder=10, rasterized=True)
         
     # Initialise 3d subplot
-    ax3 = fig2.add_subplot(3,3,j+2, projection='3d')
+    ax3 = fig2.add_subplot(3,3,j+1, projection='3d')
     ax3.view_init(elev=12., azim=-23)
     ax3.set_xlim(lam_low_loc,lam_high_loc)
     ax3.tick_params(axis='both', pad=-3)
@@ -253,17 +254,27 @@ fig2.text(0.02,0.29,'\\textbf{(g)}')
 fig2.text(0.34,0.29,'\\textbf{(h)}')
 fig2.text(0.66,0.29,'\\textbf{(i)}')
 
-fig2.text(0.6,0.95,'$b$ = '+str(bs[0]),ha='right')
-fig2.text(0.92,0.95,'$b$ = '+str(bs[1]),ha='right')
-fig2.text(0.28,0.62,'$b$ = '+str(bs[2]),ha='right')
-fig2.text(0.6,0.62,'$b$ = '+str(bs[3]),ha='right')
-fig2.text(0.92,0.62,'$b$ = '+str(bs[4]),ha='right')
-fig2.text(0.28,0.29,'$b$ = '+str(bs[5]),ha='right')
-fig2.text(0.6,0.29,'$b$ = '+str(bs[6]),ha='right')
-fig2.text(0.92,0.29,'$b$ = '+str(bs[7]),ha='right')
+fig2.text(0.28,0.95,'$b$ = '+str(bs[0]),ha='right')
+fig2.text(0.6,0.95,'$b$ = '+str(bs[1]),ha='right')
+fig2.text(0.92,0.95,'$b$ = '+str(bs[2]),ha='right')
+fig2.text(0.28,0.62,'$b$ = '+str(bs[3]),ha='right')
+fig2.text(0.6,0.62,'$b$ = '+str(bs[4]),ha='right')
+fig2.text(0.92,0.62,'$b$ = '+str(bs[5]),ha='right')
+fig2.text(0.28,0.29,'$b$ = '+str(bs[6]),ha='right')
+fig2.text(0.6,0.29,'$b$ = '+str(bs[7]),ha='right')
+
+fig2.text(0.945,0.07,'(a),(b),\n(c),(d)')
+ax0.annotate("", xy=(2.36, 0.4), xytext=(2.57, 0.3), arrowprops=dict(arrowstyle="->"))
+fig2.text(0.962,0.135,'(e)')
+ax0.annotate("", xy=(2.4, 0.9), xytext=(2.66, 1.28), arrowprops=dict(arrowstyle="->"))
+fig2.text(0.962,0.18,'(f)')
+ax0.annotate("", xy=(2.5, 2.4), xytext=(2.66, 2.13), arrowprops=dict(arrowstyle="->"))
+fig2.text(0.962,0.225,'(g)')
+ax0.annotate("", xy=(2.5, 2.7), xytext=(2.66, 3.05), arrowprops=dict(arrowstyle="->"))
+fig2.text(0.962,0.27,'(h)')
+ax0.annotate("", xy=(2.5, 3.7), xytext=(2.66, 3.97), arrowprops=dict(arrowstyle="->"))
 
 ax0.spines['right'].set_visible(False)
 ax0.spines['top'].set_visible(False)
 
-# fig2.savefig('../Figures/Localised_coupling/Cascade_tipping_loc_coupling_lambda_M_3dbif_arrows_speed_v2.pdf', format='pdf', dpi=800)
-
+fig2.savefig('../Figures/Localised_coupling/Cascade_tipping_loc_coupling_lambda_M_3dbif_arrows_speed_v3.pdf', format='pdf', dpi=800)

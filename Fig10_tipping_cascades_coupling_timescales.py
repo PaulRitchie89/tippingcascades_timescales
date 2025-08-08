@@ -19,27 +19,29 @@ rc('font', **{'size' : fontsize})
 rc('text', usetex=True)
 
 # Load in data
-mat_contents = sp.loadmat("Downstream_tipping_boundaries_theory_v4.mat")
-bs = mat_contents['bs'][0]
+mat_contents = sp.loadmat("Downstream_tipping_boundaries_theory_v5.mat")
 epsilon = mat_contents['epsilon'][0]
-b_inter = mat_contents['b_inter'][0]
-b_prop = mat_contents['b_prop'][0]
-bs_theory = mat_contents['bs_theory'][0]
-b_UBf = mat_contents['b_UBf'][0]
+b_track = mat_contents['b_track'][0]
+b_on = mat_contents['b_on'][0][0]
+b_off = mat_contents['b_off'][0]
+b_UaDB = mat_contents['b_UaDB'][0]
+b_theory = mat_contents['b_theory'][0]
 
 # Plotting
 fig, ax = plt.subplots(1,1,figsize=(7.007874,5.6))
-plt.plot(bs,epsilon,'k')
-plt.plot(b_UBf,epsilon,'k--')
-plt.plot([2,2],[1e-3,1e2],'k:',alpha=0.5)
-plt.plot([bs[-1],bs[-1]],[1e-3,1e2],'k:',alpha=0.5)
-plt.plot(b_inter,epsilon,'k')
-plt.plot([b_prop,b_prop],[1e-3,1e2],'k--')
-plt.fill_betweenx(epsilon,0,bs,edgecolor='none',alpha=0.3)
-plt.fill_betweenx(epsilon,bs,b_inter,edgecolor='none',alpha=0.3,color='tab:green')
 
-plt.fill_between(b_inter,1e-3,epsilon,edgecolor='none',alpha=0.3,color='tab:red')
-plt.plot(bs_theory[epsilon<1],epsilon[epsilon<1],'r--')
+plt.plot(b_UaDB,epsilon,'k')
+plt.plot([b_on,b_on],[1e-3,1e2],'k--')
+plt.plot(b_off,epsilon,'k--')
+plt.plot(b_track,epsilon,'k')
+plt.plot([2,2],[1e-3,1e2],'k:',alpha=0.5)
+plt.plot([b_track[-1],b_track[-1]],[1e-3,1e2],'k:',alpha=0.5)
+
+plt.fill_betweenx(epsilon,0,b_track,edgecolor='none',alpha=0.3)
+plt.fill_betweenx(epsilon,b_track,b_UaDB,edgecolor='none',alpha=0.3,color='tab:green')
+plt.fill_between(b_UaDB,1e-3*np.ones(len(b_UaDB)),epsilon,edgecolor='none',alpha=0.3,color='tab:red')
+
+plt.plot(b_theory[epsilon<1],epsilon[epsilon<1],'r--')
 
 plt.text(2.8,0.05,'Theory',ha='center',rotation=60,c='r')
 
@@ -53,8 +55,8 @@ plt.xscale('log')
 plt.yscale('log')
 
 
-ax.annotate("", xy=(np.log10(2)/np.log10(80),1.03), xytext=(np.log10(bs[-1])/np.log10(80), 1.03), xycoords='axes fraction', arrowprops=dict(arrowstyle="<->"))
-plt.text((np.log10(2) +(np.log10(bs[-1])-np.log10(2))/2)/np.log10(80),1.05,'Overshoot',ha='center',c='k', transform=ax.transAxes)
+ax.annotate("", xy=(np.log10(2)/np.log10(80),1.03), xytext=(np.log10(b_track[-1])/np.log10(80), 1.03), xycoords='axes fraction', arrowprops=dict(arrowstyle="<->"))
+plt.text((np.log10(2) +(np.log10(b_track[-1])-np.log10(2))/2)/np.log10(80),1.05,'Overshoot',ha='center',c='k', transform=ax.transAxes)
 
 
 plt.text(0.28,0.8,'UB',ha='center',va='center', transform=ax.transAxes)
@@ -87,5 +89,4 @@ plt.text(-0.1,0.3,r"$\textbf{Accelerating}$" "\n" r"$\textbf{cascades}$",ha='cen
 plt.tight_layout()
 plt.subplots_adjust(top=0.93)
 
-# fig.savefig('../Figures/Localised_coupling/Cascade_tipping_b_eps_tipping_regimes_loc_v5.pdf', format='pdf', dpi=800)
-
+# fig.savefig('../Figures/Localised_coupling/Cascade_tipping_b_eps_tipping_regimes_loc_v6.pdf', format='pdf', dpi=800)
